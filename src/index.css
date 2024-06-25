@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.title {
+    @apply text-3xl font-primary text-primary font-bold
+}
+
+.details {
+    @apply text-xl font-primary text-secondary font-normal
+}
