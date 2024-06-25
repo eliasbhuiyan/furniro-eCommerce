@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import NextArrow from "../NextArrow";
 const Explore = () => {
   var settings = {
     dots: true,
@@ -9,10 +10,12 @@ const Explore = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <span></span>,
   };
   return (
-    <section className="mb-16 py-11 bg-[#FCF8F3]">
-      <div className="container flex gap-10">
+    <section className="mb-16 py-11 bg-[#FCF8F3] explore">
+      <div className="container flex gap-10 items-center">
         <div className="w-2/5">
           <h2 className="title">50+ Beautiful rooms inspiration</h2>
           <p className="details mb-6">
@@ -23,14 +26,14 @@ const Explore = () => {
         </div>
         <div className="w-3/5">
           <Slider {...settings}>
-            <div className="">
-              <img src="/slide-1.png" className="w-full" alt="" />
+            <div className="slide_items">
+              <img src="/slide-1.png" className="w-full h-full" alt="" />
             </div>
-            <div className="">
-              <img src="/slide-1.png" className="w-full" alt="" />
+            <div className="slide_items">
+              <img src="/slide-2.png" className="w-full h-full" alt="" />
             </div>
-            <div className="">
-              <img src="/slide-1.png" className="w-full" alt="" />
+            <div className="slide_items">
+              <img src="/slide-3.png" className="w-full h-full" alt="" />
             </div>
           </Slider>
         </div>
