@@ -80,3 +80,12 @@
 .setup img:nth-child(9) {
     grid-area: 6 / 10 / 8 / 12
 }
+.pagination-product li a{
+    @apply py-4 px-6 bg-[#F9F1E7] rounded-xl
+}
+.pagination-product .selected a{
+    @apply bg-brand
+}
+.pagination-product .previous{
+    @apply hidden
+}

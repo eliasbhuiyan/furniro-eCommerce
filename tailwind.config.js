@@ -12,6 +12,7 @@ export default {
       colors: {
         'primary': '#333333',
         'secondary': '#666666',
+        'third': '#F9F1E7',
         'brand': '#B88E2F',
       }
     },
