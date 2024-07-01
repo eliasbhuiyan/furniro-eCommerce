@@ -89,3 +89,18 @@
 .pagination-product .previous{
     @apply hidden
 }
+
+.sideCard::-webkit-scrollbar {
+    @apply w-2
+  }
+  
+  /* Track */
+  .sideCard::-webkit-scrollbar-track {
+    @apply bg-[#F9F1E7] rounded-lg
+  }
+   
+  /* Handle */
+  .sideCard::-webkit-scrollbar-thumb {
+  @apply bg-brand rounded-lg
+  }
+  
