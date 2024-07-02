@@ -1,5 +1,4 @@
 import React from "react";
-
 const Browse = () => {
   return (
     <section className="py-14">
