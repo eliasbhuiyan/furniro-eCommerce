@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductSlide from "product-slide";
 import { FaStar, FaStarHalf } from "react-icons/fa";
-
+import CardButton from "../Cart/CardButton";
 const API = {
   images: [
     "https://i.imgur.com/QkIa5tT.jpeg",
@@ -13,6 +13,7 @@ const API = {
 const Details = () => {
   const [selectSize, setSelectSize] = useState(null);
   const [selectColor, setSelectColor] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const settings = {
     direction: "vertical",
     zoom: true,
@@ -160,6 +161,20 @@ const Details = () => {
                 />
               </label>
             </div>
+          </div>
+          <div className="flex gap-5 items-center py-14 border-b">
+            <div className="flex py-2 px-2 gap-9 border w-fit rounded-xl text-lg">
+              <button
+                onClick={() => {
+                  quantity > 1 && setQuantity(quantity - 1);
+                }}
+              >
+                -
+              </button>
+              <p>{quantity}</p>
+              <button onClick={() => setQuantity(quantity + 1)}>+</button>
+            </div>
+            <CardButton title="Add To Cart" />
           </div>
         </div>
       </div>
