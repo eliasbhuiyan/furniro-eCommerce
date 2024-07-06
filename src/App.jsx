@@ -12,6 +12,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import Checkout from "./pages/Checkout";
+import Contact from "./pages/Contact";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/shop/details" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     )

@@ -3,7 +3,7 @@ import React from "react";
 const InputBox = ({ title, type = "text", placeholder }) => {
   console.log(type);
   return (
-    <div className="pt-9 w-full">
+    <div className="pb-9 w-full">
       <label className="block font-primary font-medium text-base text-black pb-5">
         {title}
       </label>

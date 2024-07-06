@@ -15,9 +15,9 @@ const Navbar = () => {
     <>
       <nav className="py-7 relative">
         <div className="container flex justify-between items-center">
-          <div>
+          <Link to="/">
             <img src="/logo.png" alt="logo" />
-          </div>
+          </Link>
           <ul
             className={`w-1/2 lg:w-auto ${
               show ? "translate-x-0" : "-translate-x-full"
@@ -30,10 +30,10 @@ const Navbar = () => {
               <Link to="/shop">Shop</Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="/">Contact</Link>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
           <div>
