@@ -1,6 +1,6 @@
 import React from "react";
-import PageBanner from "../components/PageBanner";
 import CartBody from "../components/Cart/CartBody";
+import PageBanner from "../components/utilities/PageBanner";
 
 const Cart = () => {
   return (

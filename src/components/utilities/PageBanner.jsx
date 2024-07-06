@@ -5,7 +5,9 @@ const PageBanner = ({ title }) => {
   return (
     <section className="pt-[120px] pb-24 bg-[url('/shop_banner.png')]">
       <div className="container">
-        <img src="/logo-icon.png" alt="logo-icon" className="m-auto" />
+        <div className="m-auto w-20">
+          <img src="/logo-icon.png" alt="logo-icon" />
+        </div>
         <h2 className="font-primary text-5xl font-medium text-black text-center">
           {title}
         </h2>

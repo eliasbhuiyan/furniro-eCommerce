@@ -5,12 +5,13 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/details" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     )

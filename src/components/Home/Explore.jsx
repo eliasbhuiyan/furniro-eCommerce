@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../Button";
+import Button from "../utilities/Button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import NextArrow from "../NextArrow";
+import NextArrow from "../utilities/NextArrow";
 const Explore = () => {
   var settings = {
     dots: true,

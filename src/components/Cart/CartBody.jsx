@@ -1,6 +1,6 @@
 import React from "react";
 import CartItems from "./CartItems";
-import CardButton from "./CardButton";
+import CardButton from "../utilities/CardButton";
 const CartBody = () => {
   return (
     <section className="py-16">
@@ -42,7 +42,7 @@ const CartBody = () => {
               Rs. 250,000.00
             </p>
           </div>
-          <CardButton path="/check-out" title="Check Out" />
+          <CardButton path="/checkout" title="Check Out" />
         </div>
       </div>
     </section>

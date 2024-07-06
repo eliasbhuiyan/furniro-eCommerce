@@ -1,6 +1,7 @@
 import React from "react";
-import BreadCrumb from "../components/BreadCrumb";
+import BreadCrumb from "../components/utilities/BreadCrumb";
 import Details from "../components/ProductDetails/Details";
+import RelatedProducts from "../components/ProductDetails/RelatedProducts";
 
 const ProductDetails = () => {
   return (
@@ -9,6 +10,7 @@ const ProductDetails = () => {
         <BreadCrumb />
       </div>
       <Details />
+      <RelatedProducts />
     </section>
   );
 };

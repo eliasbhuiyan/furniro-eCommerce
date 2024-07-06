@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaRegUser, FaSearch, FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
-import CartSidebar from "./Cart/CardSidebar";
+import CartSidebar from "../Cart/CardSidebar";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import SidebarItem from "./SidebarItem";
-import CardButton from "./CardButton";
+import CardButton from "../utilities/CardButton";
 
 const CardSidebar = ({ handelSidebar }) => {
   return (
@@ -33,7 +33,7 @@ const CardSidebar = ({ handelSidebar }) => {
         </div>
         <div className="flex items-center justify-center gap-4 mt-6 px-6">
           <CardButton path="/cart" title="Cart" />
-          <CardButton path="/cart" title="Checkout" />
+          <CardButton path="/checkout" title="Checkout" />
         </div>
       </div>
     </div>
