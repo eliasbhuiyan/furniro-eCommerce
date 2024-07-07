@@ -7,13 +7,19 @@ import { productData } from "../api";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({})
+  const [relatedProductList, setRelatedProductList] = useState([])
   const params = useParams()
   useEffect(()=>{
     productData().then((res) => {
       for(let item of res.data){
         if(item.id == params.id){
-          setProduct(item);    
-        }       
+          setProduct(item);  
+          for(let releted of res.data){
+            if(item.category.name == releted.category.name){
+              setRelatedProductList((prev)=> [...prev, releted])
+            }      
+          }
+        }
       }
     }).catch((err) => {
       console.log(err);
@@ -25,7 +31,7 @@ const ProductDetails = () => {
         <BreadCrumb />
       </div>
       <Details data={product}/>
-      <RelatedProducts />
+      <RelatedProducts propducts={relatedProductList}/>
     </section>
   );
 };

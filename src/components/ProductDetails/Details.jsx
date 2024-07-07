@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import ProductSlide from "product-slide";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import CardButton from "../utilities/CardButton";
-const API = {
-  images: [
-    "https://i.imgur.com/QkIa5tT.jpeg",
-    "https://i.imgur.com/jb5Yu0h.jpeg",
-    "https://i.imgur.com/UlxxXyG.jpeg",
-    "https://i.imgur.com/QkIa5tT.jpeg",
-  ],
-};
+
 const Details = ({data}) => {
   const [selectSize, setSelectSize] = useState(null);
   const [selectColor, setSelectColor] = useState("");
@@ -23,7 +16,7 @@ const Details = ({data}) => {
       <div className="container">
         <div className="flex gap-20">
           <div className="w-1/2">
-            <ProductSlide settings={settings} api={API.images} />
+            <ProductSlide settings={settings} api={data.images} />
           </div>
           <div className="w-1/2">
             <h2 className="title pb-3">{data?.title}</h2>
