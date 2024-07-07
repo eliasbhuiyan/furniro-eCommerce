@@ -1,13 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../reducer/productSlice";
 
 const ProductItems = ({data}) => {
+  const dispatch = useDispatch()
   return (
     <div className="cursor-pointer">
       <div className="relative group">
         <img src={data?.images[0]} className="w-full" alt="product" />
         <div className="absolute top-0 left-0 w-full h-full bg-[rgba(58,58,58,0.31)] flex items-center justify-center scale-0 group-hover:scale-100 transition-all">
-          <button className="text-brand text-base font-primary font-bold py-3 px-[52px] bg-white inline-block">
+          <button onClick={()=>dispatch(addToCart(data))} className="text-brand text-base font-primary font-bold py-3 px-[52px] bg-white inline-block">
             Add to cart
           </button>
         </div>

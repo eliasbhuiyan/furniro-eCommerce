@@ -25,6 +25,7 @@ const ProductDetails = () => {
       console.log(err);
     });
   },[params.id])
+
   return (
     <section>
       <div className="py-8 bg-third">

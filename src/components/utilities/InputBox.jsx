@@ -1,7 +1,6 @@
 import React from "react";
 
 const InputBox = ({ title, type = "text", placeholder }) => {
-  console.log(type);
   return (
     <div className="pb-9 w-full">
       <label className="block font-primary font-medium text-base text-black pb-5">
