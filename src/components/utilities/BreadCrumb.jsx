@@ -6,7 +6,6 @@ const BreadCrumb = () => {
   const location = useLocation();
   const path1 = location.pathname.split("/")[1];
   const path2 = location.pathname.split("/")[2];
-  console.log(path2);
   return (
     <ul className="flex items-center justify-center gap-6 mt-1">
       <li>

@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "./Button";
 import { Link } from "react-router-dom";
 
 const ProductItems = ({data}) => {
@@ -13,7 +12,7 @@ const ProductItems = ({data}) => {
           </button>
         </div>
       </div>
-      <Link to="/shop/details" className="bg-[#F4F5F7] px-5 pt-4 pb-7 block">
+      <Link to={`/shop/${data?.id}`} className="bg-[#F4F5F7] px-5 pt-4 pb-7 block">
         <h3 className="font-primary text-xl font-semibold text-primary">
           {data?.title}
         </h3>

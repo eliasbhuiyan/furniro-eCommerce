@@ -10,7 +10,7 @@ const API = {
     "https://i.imgur.com/QkIa5tT.jpeg",
   ],
 };
-const Details = () => {
+const Details = ({data}) => {
   const [selectSize, setSelectSize] = useState(null);
   const [selectColor, setSelectColor] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -18,7 +18,6 @@ const Details = () => {
     direction: "vertical",
     zoom: true,
   };
-  console.log(selectSize);
   return (
     <section className="py-9">
       <div className="container">
@@ -27,9 +26,9 @@ const Details = () => {
             <ProductSlide settings={settings} api={API.images} />
           </div>
           <div className="w-1/2">
-            <h2 className="title pb-3">Asgaard sofa</h2>
+            <h2 className="title pb-3">{data?.title}</h2>
             <p className="font-primary font-medium text-2xl text-secondary">
-              Rs. 250,000.00
+              BDT {data?.price}
             </p>
             <ul className="flex items-center gap-2 text-xl text-[#FFC700] py-4">
               <li>
@@ -49,10 +48,7 @@ const Details = () => {
               </li>
             </ul>
             <p className="font-primary font-normal text-base">
-              Setting the bar as one of the loudest speakers in its class, the
-              Kilburn is a compact, stout-hearted hero with a well-balanced
-              audio which boasts a clear midrange and extended highs for a
-              sound.
+              {data?.description}
             </p>
             <div className="py-5">
               <p className="font-primary font-normal text-base text-secondary">
