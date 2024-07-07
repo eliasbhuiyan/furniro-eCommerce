@@ -3,6 +3,7 @@ import Button from "../utilities/Button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import NextArrow from "../utilities/NextArrow";
+import PrevArrow from "../utilities/PrevArrow";
 const Explore = () => {
   var settings = {
     dots: true,
@@ -11,7 +12,7 @@ const Explore = () => {
     slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
-    prevArrow: <span></span>,
+    prevArrow: <PrevArrow/>,
   };
   return (
     <section className="mb-16 py-11 bg-[#FCF8F3] explore">

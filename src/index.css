@@ -39,6 +39,10 @@
     @apply text-[0px] w-3 h-3 rounded-full bg-brand relative after:absolute after:w-7 after:h-7 after:top-1/2 after:left-1/2 after:-translate-y-1/2 after:-translate-x-1/2 after:border-2 after:border-brand after:rounded-full
 }
 
+.explore .slick-prev{
+    @apply hidden;
+}
+
 .setup {
     display: grid;
     grid-template-columns: repeat(12, 1fr);

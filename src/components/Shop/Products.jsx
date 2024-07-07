@@ -2,28 +2,37 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 import ProductItems from "../utilities/ProductItems";
-const items = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-];
+import { productData } from "../../api";
+
 
 const Products = ({ itemsPerPage }) => {
+  const [productList, setProductList] = useState([]);
+  productList.length = 51;
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
+  const currentItems = productList.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(productList.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
+    const newOffset = (event.selected * itemsPerPage) % productList.length;
     setItemOffset(newOffset);
   };
-  console.log(currentItems);
+
+  useEffect(()=>{
+    productData().then((res) => {
+      setProductList(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  },[])
+  
   return (
     <>
       <section className="py-11">
         <div className="container">
           <div className="grid grid-cols-4 gap-8 pt-8">
             {currentItems &&
-              currentItems.map((item, i) => <ProductItems key={i} />)}
+              currentItems.map((item) => <ProductItems key={item.key} data={item}/>)}
           </div>
           <ReactPaginate
             breakLabel="..."
