@@ -2,10 +2,9 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 
-const BreadCrumb = () => {
+const BreadCrumb = ({title}) => {
   const location = useLocation();
   const path1 = location.pathname.split("/")[1];
-  const path2 = location.pathname.split("/")[2];
   return (
     <ul className="flex items-center justify-center gap-6 mt-1">
       <li>
@@ -24,14 +23,14 @@ const BreadCrumb = () => {
           {path1}
         </Link>
       </li>
-      {path2 && (
+      {title && (
         <>
           <li>
             <FaChevronRight />
           </li>
           <li>
-            <p className="font-primary text-base font-light text-black capitalize border-l-2 border-l-secondary pl-8">
-              {path2}
+            <p className="font-primary text-bse font-normal text-black capitalize border-l-2 border-l-secondary pl-8">
+              {title}
             </p>
           </li>
         </>

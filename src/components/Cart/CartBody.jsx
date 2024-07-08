@@ -1,7 +1,10 @@
 import React from "react";
 import CartItems from "./CartItems";
 import CardButton from "../utilities/CardButton";
+import { useSelector } from "react-redux";
 const CartBody = () => {
+  const productList = useSelector((state)=> state.cartList.product)
+  const totalPrice = productList.reduce((total, product)=> total + product.total,0)
   return (
     <section className="py-16">
       <div className="container flex gap-8">
@@ -23,7 +26,11 @@ const CartBody = () => {
             </tr>
           </thead>
           <tbody>
-            <CartItems />
+            {
+              productList.map((item)=>(
+                <CartItems key={item.key} data={item}/>
+              ))
+            }
           </tbody>
         </table>
         <div className="w-3/12 px-16 pt-4 pb-12 bg-third text-center h-fit">
@@ -33,13 +40,13 @@ const CartBody = () => {
           <div className="flex justify-between">
             <p className="font-primary font-medium text-base">Subtotal</p>
             <p className="font-primary font-medium text-base text-secondary">
-              Rs. 250,000.00
+              BDT. {totalPrice}
             </p>
           </div>
           <div className="flex justify-between pt-8 pb-10">
             <p className="font-primary font-medium text-base">Total</p>
             <p className="font-primary font-medium text-base text-brand">
-              Rs. 250,000.00
+              BDT. {totalPrice}
             </p>
           </div>
           <CardButton path="/checkout" title="Check Out" />

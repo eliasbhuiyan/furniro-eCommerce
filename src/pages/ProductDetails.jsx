@@ -29,7 +29,7 @@ const ProductDetails = () => {
   return (
     <section>
       <div className="py-8 bg-third">
-        <BreadCrumb />
+        <BreadCrumb title={product?.title}/>
       </div>
       <Details data={product}/>
       <RelatedProducts propducts={relatedProductList}/>

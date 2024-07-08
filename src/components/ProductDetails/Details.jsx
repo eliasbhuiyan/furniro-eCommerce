@@ -2,15 +2,30 @@ import React, { useState } from "react";
 import ProductSlide from "product-slide";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import CardButton from "../utilities/CardButton";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../reducer/productSlice";
 
 const Details = ({data}) => {
-  const [selectSize, setSelectSize] = useState(null);
+  data.size = ["L", "XL", "XS"]
+  const [selectSize, setSelectSize] = useState(data?.size[0]);
   const [selectColor, setSelectColor] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch()
   const settings = {
     direction: "vertical",
     zoom: true,
   };
+const handelAddToCart = ()=>{
+  data = {
+    ...data,
+    size: selectSize,
+    color: selectColor,
+    quantity: quantity,
+    images: data?.images[0],
+    total: data?.price * quantity
+  }
+  dispatch(addToCart(data))
+}
   return (
     <section className="py-9">
       <div className="container">
@@ -165,7 +180,7 @@ const Details = ({data}) => {
                 <p>{quantity}</p>
                 <button onClick={() => setQuantity(quantity + 1)}>+</button>
               </div>
-              <CardButton title="Add To Cart" />
+              <CardButton click={handelAddToCart} title="Add To Cart" />
             </div>
           </div>
         </div>

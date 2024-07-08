@@ -10,12 +10,15 @@ const productSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
        state.product.push(action.payload)
-
        localStorage.setItem("product", JSON.stringify(state.product))
     },
+    removeFromCart: (state, action) => {
+      state.product = state.product.filter((item)=> item.id !== action.payload)
+      localStorage.setItem("product", JSON.stringify(state.product))
+    }
   },
 })
 
-export const { addToCart } = productSlice.actions
+export const { addToCart,removeFromCart } = productSlice.actions
 
 export default productSlice.reducer
