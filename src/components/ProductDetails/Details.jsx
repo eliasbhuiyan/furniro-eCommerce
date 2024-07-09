@@ -4,7 +4,8 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import CardButton from "../utilities/CardButton";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../reducer/productSlice";
-
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Details = ({data}) => {
   data.size = ["L", "XL", "XS"]
   const [selectSize, setSelectSize] = useState(data?.size[0]);
@@ -25,9 +26,11 @@ const handelAddToCart = ()=>{
     total: data?.price * quantity
   }
   dispatch(addToCart(data))
+  toast.success('Product add to cart successfully! Continue Shopping.');
 }
   return (
     <section className="py-9">
+      <ToastContainer position="top-center" />
       <div className="container">
         <div className="flex gap-20">
           <div className="w-1/2">
