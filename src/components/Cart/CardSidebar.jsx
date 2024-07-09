@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import SidebarItem from "./SidebarItem";
 import CardButton from "../utilities/CardButton";
@@ -8,9 +8,23 @@ const CardSidebar = ({ handelSidebar }) => {
   const productList = useSelector((state)=> state.cartList.product)
   const totalPrice = productList.reduce((total, product)=> total + product.total,0)
 
+  const cartRef = useRef(null)
+
+  const handelCartToggle = (e)=>{
+    if(e.target.contains(cartRef.current)){
+      handelSidebar(false)
+    }
+  }
+
+  useEffect(()=>{
+    document.addEventListener("mousedown", handelCartToggle)
+
+    return ()=> document.removeEventListener("mousedown", handelCartToggle)
+  },[])
+
   return (
-    <div  className="fixed bottom-0 left-0 w-full h-full bg-[rgba(0,0,0,0.20)] z-50">
-      <div className="w-fit py-7 bg-white ml-auto h-[746px] flex flex-col">
+    <div className="fixed bottom-0 left-0 w-full h-full bg-[rgba(0,0,0,0.20)] z-50">
+      <div ref={cartRef} className="w-fit py-7 bg-white ml-auto h-[746px] flex flex-col">
         <div className="flex items-center justify-between mb-10 pb-6 border-b px-6">
           <h2 className="font-primary font-semibold text-black text-2xl">
             Shopping Cart

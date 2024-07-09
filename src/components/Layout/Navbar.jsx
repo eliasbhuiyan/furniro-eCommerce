@@ -4,13 +4,16 @@ import { FaRegUser, FaSearch, FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
 import CartSidebar from "../Cart/CardSidebar";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
   const [sideCard, setSideCard] = useState(false);
+  const productList = useSelector((state)=> state.cartList.product)
   const handelSidebar = (result) => {
     setSideCard(result);
   };
+  console.log(productList.length);
   return (
     <>
       <nav className="py-7 relative">
@@ -53,8 +56,9 @@ const Navbar = () => {
                   <FaRegHeart />
                 </Link>
               </li>
-              <li onClick={() => setSideCard(true)}>
-                <IoCartOutline className="cursor-pointer" />
+              <li className="relative" onClick={() => setSideCard(true)}>
+                <IoCartOutline className="cursor-pointer text-3xl" />
+                <span className="absolute -top-4 -right-2 bg-brand w-6 h-6 rounded-full flex items-center justify-center text-base text-white">{productList.length}</span>
               </li>
             </ul>
           </div>

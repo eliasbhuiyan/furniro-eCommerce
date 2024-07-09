@@ -8,7 +8,7 @@ const CartItems = ({data}) => {
   return (
     <tr>
       <td className="pt-5">
-        <div className="flex items-center gap-9 justify-center">
+        <div className="flex items-center gap-9 pl-8">
           <div className="w-28 rounded-xl overflow-hidden">
             <img src={data?.images} className="w-full" alt="product" />
           </div>

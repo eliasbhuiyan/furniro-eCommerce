@@ -2,8 +2,14 @@ import React from "react";
 import InputBox from "../utilities/InputBox";
 import SelectBox from "../utilities/SelectBox";
 import CardButton from "../utilities/CardButton";
+import { useSelector } from "react-redux";
 
 const CheckoutBody = () => {
+  const productList = useSelector((state) => state.cartList.product);
+  const totalPrice = productList.reduce(
+    (total, product) => total + product.total,
+    0
+  );
   return (
     <section className="py-24">
       <div className="container flex justify-between">
@@ -28,24 +34,31 @@ const CheckoutBody = () => {
             <p className="font-primary font-medium text-2xl">Product</p>
             <p className="font-primary font-medium text-2xl">Subtotal</p>
           </div>
-          <div className="flex justify-between mt-4">
-            <p className="font-primary font-normal text-base text-secondary">
-              Asgaard sofa <span className="text-black">X 1</span>
-            </p>
-            <p className="font-primary font-light text-base">Rs. 250,000.00</p>
-          </div>
+          {productList.map((item) => (
+            <div key={item.key} className="flex justify-between mt-4">
+              <p className="font-primary font-normal text-base text-secondary">
+                {item?.title}
+                <span className="text-black"> X {item?.quantity}</span>
+              </p>
+              <p className="font-primary font-light text-base">
+                BDT. {item.total}
+              </p>
+            </div>
+          ))}
           <div className="flex justify-between mt-4">
             <p className="font-primary font-normal text-base text-black">
               Subtotal
             </p>
-            <p className="font-primary font-light text-base">Rs. 250,000.00</p>
+            <p className="font-primary font-light text-base">
+              BDT. {totalPrice}
+            </p>
           </div>
           <div className="flex justify-between mt-4 pb-8 border-b">
             <p className="font-primary font-normal text-base text-black">
               Total
             </p>
             <p className="font-primary font-bold text-2xl text-brand">
-              Rs. 250,000.00
+              BDT. {totalPrice}
             </p>
           </div>
           <div className="mt-5">
